@@ -30,7 +30,7 @@ for day in DAYS:
         df = pd.read_parquet(filename, engine='fastparquet')
         day_list.append(df.loc[(df.timeSlot < start_utsp) | (df.timeSlot >= end_utsp)])
         night_list.append(df.loc[(df.timeSlot >= start_utsp) & (df.timeSlot < end_utsp)])
-        #print(len(df), '\t', len(day_list[-1]), '\t', len(night_list[-1]))
+        print(len(df), '\t', len(day_list[-1]), '\t', len(night_list[-1]))
 
 # Daytime process
 frame_day = pd.concat(day_list, axis=0, ignore_index=True)
